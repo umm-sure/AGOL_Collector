@@ -22,7 +22,10 @@
     <script src="https://js.arcgis.com/4.28/"></script>
   
     <script>
-      require(["esri/config", "esri/Map", "esri/views/MapView", "esri/widgets/Locate", "esri/widgets/Search"], function(esriConfig, Map, MapView, Locate, Search) {
+      require(["esri/config",
+       "esri/Map", "esri/views/MapView", 
+       "esri/widgets/Locate", "esri/widgets/Search",
+       "esri/layers/FeatureLayer"], function(esriConfig, Map, MapView, Locate, Search, FeatureLayer) {
   
         esriConfig.apiKey = "AAPK22e4ec34fd14421696e81cb44e3f740bq_B9x_-ncR2mCNbS5aJ79C1YtB1mLlY3p6SmzQokYXrnWWonbLTSnaTCoxgUFig2";
 
@@ -55,6 +58,13 @@
         position: "top-right",
         index: 2
         });
+
+        const layer = new FeatureLayer({ 
+        // URL to the service 
+        url: "https://services.arcgis.com/LBbVDC0hKPAnLRpO/arcgis/rest/services/survey123_624fda98ab0b4a8792f5b43367b37c1a_results/FeatureServer" //Your item URL Goes Here
+        });
+
+        map.add(layer);
   
       });
     </script>
